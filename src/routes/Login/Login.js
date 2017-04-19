@@ -1,10 +1,16 @@
 import React from 'react';
+import { Actions } from 'react-native-router-flux';
 import {
   View,
-  Text
+  Text,
+  Button
 } from 'react-native';
 
 import styles from './styles';
+
+ const handleLoginButtonPress = () => {
+    Actions.home();
+}
 
 const Login = () => {
   return (
@@ -12,6 +18,7 @@ const Login = () => {
       <Text style={styles.text}>
         MANGO LOGIN
       </Text>
+      <Button style={styles.loginButton} onPress={ handleLoginButtonPress } title='Ingresar' color='red' accessibilityLabel='Ingresar' />
     </View>
   );
 };
