@@ -11,7 +11,7 @@ import routes from './config/routes';
 class Mangos extends Component {
   render() {
     return (
-      <Router navigationBarStyle={styles.navBar} titleStyle={styles.navBarTitle} >        
+      <Router navigationBarStyle={styles.navBar} titleStyle={styles.navBarTitle} >         
         <Scene key="login" component={routes.getLogin} hideNavBar />
         <Scene key="home" component={routes.getHome} type={ActionConst.REPLACE}  title="MANGOS"/>
       </Router>
