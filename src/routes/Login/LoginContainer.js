@@ -1,15 +1,17 @@
-import React, { Component } from 'react';
-import Login from './Login';
-import SplashScreen from 'react-native-splash-screen'
+import React, { Component } from 'react'
+import Login from './Login'
+
+import oAuth from '../../oAuth'
+
+const authenticate = () => {
+  console.warn('ejecuta authenticate')
+  oAuth.facebook()
+}
 
 class LoginContainer extends Component {
- 
-  componentDidMount() {
-     SplashScreen.hide();
-  }
   render() {
     return (
-      <Login/>
+      <Login authenticate={authenticate} />
     )
   }
 }

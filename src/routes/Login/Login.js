@@ -10,10 +10,12 @@ import {
 import styles from './styles';
 import images from '../../config/images';
 
+import oAuth from '../../oAuth'
+
  const handleLoginButtonPress = () => {
-    Actions.home();
+  oAuth.facebook()
 }
-const Login = () => {
+const Login = ({ authenticate }) => {
   return (
     <View style={styles.container}>
       <View>
