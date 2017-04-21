@@ -37,7 +37,7 @@ export default StyleSheet.create({
     alignItems:'center',
     justifyContent: 'center', 
     backgroundColor: '#E2D755',
-    height:97
+    height:80
   },
   textLogin:{
     fontSize: 24,

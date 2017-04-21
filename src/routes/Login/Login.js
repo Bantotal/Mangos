@@ -13,7 +13,6 @@ import images from '../../config/images';
  const handleLoginButtonPress = () => {
     Actions.home();
 }
-
 const Login = () => {
   return (
     <View style={styles.container}>
