@@ -4,7 +4,6 @@ import Login from './Login'
 import oAuth from '../../oAuth'
 
 const authenticate = () => {
-  console.warn('ejecuta authenticate')
   oAuth.facebook()
 }
 
