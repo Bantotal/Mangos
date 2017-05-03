@@ -29,10 +29,7 @@ const Login = ({ authenticate }) => {
         </TouchableOpacity>
       </View> 
     </View>
-  );
-};
+  )
+}
 
-Login.propTypes = {
-};
-
-export default Login;
+export default Login
