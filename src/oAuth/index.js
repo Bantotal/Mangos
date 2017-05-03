@@ -1,20 +1,18 @@
 import { Linking } from 'react-native'
-import qs from 'shitty-qs'
 
 const oAuth = {
   facebook: (callback) => {
-    url = 'https://www.facebook.com/dialog/oauth?client_id=1373029619402623&redirect_uri=fb1373029619402623://authorize&response_type=token'
+    url = 'http://localhost:8090/auth/dialog/authorize?client_id=Ki7OYsnueyHlEwBHLcsoATBHpiuUq5gq&response_type=code&redirect_uri=mangos://authorize/'
     
     Linking.openURL(url)
       .catch(err => console.error('An error occurred', err))
 
-    Linking.getInitialURL(url)
-      .then((url) => { 
-        const parse = url.substring(url.indexOf("/#") + 2)
-        var credentials = qs(parse)
-        console.warn('credentials: ' + JSON.stringify(credentials))
-      })
-      .catch(err => console.error('An error occurred', err))
+    Linking.addEventListener('url', (event) => {
+      const url = event.url
+      const code = url.substring(url.indexOf("=") + 1)
+      Linking.removeEventListener('url', this._handleOpenURL)    
+    })
+
   },
 }
 

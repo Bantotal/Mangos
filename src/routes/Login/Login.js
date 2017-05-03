@@ -12,9 +12,10 @@ import images from '../../config/images';
 
 import oAuth from '../../oAuth'
 
- const handleLoginButtonPress = () => {
+const handleLoginButtonPress = () => {
   oAuth.facebook()
 }
+
 const Login = ({ authenticate }) => {
   return (
     <View style={styles.container}>
@@ -24,8 +25,7 @@ const Login = ({ authenticate }) => {
           <Text style={styles.title}>MANGOS</Text>
         </View>
         <View style={styles.textView}>
-          <Text style={styles.text}>Consulta</Text> 
-          <Text style={styles.text2}>rápidamente</Text> 
+          <Text style={styles.text2}>Rápidamente</Text> 
           <Text style={styles.text}>cuanto dinero tienes</Text>
         </View>
       </View>

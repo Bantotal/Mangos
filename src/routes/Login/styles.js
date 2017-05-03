@@ -15,7 +15,7 @@ export default StyleSheet.create({
   title: {
     color:'#FFFFFF',
     fontSize: 35,
-    fontFamily: 'Dhurjati-Regular',
+    fontFamily: 'Dhurjati',
   },
   textView:{
      marginTop: 10,
