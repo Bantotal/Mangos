@@ -2,15 +2,21 @@ import React, { Component } from 'react'
 import Login from './Login'
 
 import oAuth from '../../oAuth'
-
-const authenticate = () => {
-  oAuth.facebook()
-}
+import constants from '../../config/constants'
 
 class LoginContainer extends Component {
+  constructor() {
+    super()
+    this._authenticate.bind(this)
+  }
+
+  _authenticate() {
+    oAuth.bdevelopers(constants.auth.client_id)
+  }
+
   render() {
     return (
-      <Login authenticate={authenticate} />
+      <Login authenticate={this._authenticate} />
     )
   }
 }

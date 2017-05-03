@@ -10,12 +10,6 @@ import {
 import styles from './styles';
 import images from '../../config/images';
 
-import oAuth from '../../oAuth'
-
-const handleLoginButtonPress = () => {
-  oAuth.facebook()
-}
-
 const Login = ({ authenticate }) => {
   return (
     <View style={styles.container}>
@@ -30,7 +24,7 @@ const Login = ({ authenticate }) => {
         </View>
       </View>
       <View>
-        <TouchableOpacity  style={styles.loginButton} onPress={ handleLoginButtonPress } >
+        <TouchableOpacity  style={styles.loginButton} onPress={authenticate} >
           <Text style={styles.textLogin}>INGRESAR</Text>
         </TouchableOpacity>
       </View> 

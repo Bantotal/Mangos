@@ -1,8 +1,8 @@
 import { Linking } from 'react-native'
 
 const oAuth = {
-  facebook: (callback) => {
-    url = 'http://localhost:8090/auth/dialog/authorize?client_id=Ki7OYsnueyHlEwBHLcsoATBHpiuUq5gq&response_type=code&redirect_uri=mangos://authorize/'
+  bdevelopers: (client_id, callback) => {
+    url = `http://localhost:8090/auth/dialog/authorize?client_id=${client_id}&response_type=code&redirect_uri=mangos://authorize/`
     
     Linking.openURL(url)
       .catch(err => console.error('An error occurred', err))
