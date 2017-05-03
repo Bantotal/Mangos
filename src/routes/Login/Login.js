@@ -13,15 +13,13 @@ import images from '../../config/images'
 const Login = ({ authenticate }) => {
   return (
     <View style={styles.container}>
-      <View>
-        <View style={styles.logoView}>
-          <Image source={images.logo} style={styles.logo} />
-          <Text style={styles.title}>MANGOS</Text>
-        </View>
-        <View style={styles.textView}>
-          <Text style={styles.text2}>Rápidamente</Text> 
-          <Text style={styles.text}>cuanto dinero tienes</Text>
-        </View>
+      <View style={styles.logoView}>
+        <Image source={images.logo} />
+        <Text style={styles.title}>MANGOS</Text>
+      </View>
+      <View style={styles.textView}>
+        <Text style={styles.text2}>Rápidamente</Text> 
+        <Text style={styles.text}>cuanto dinero tienes</Text>
       </View>
       <View>
         <TouchableOpacity  style={styles.loginButton} onPress={authenticate} >
