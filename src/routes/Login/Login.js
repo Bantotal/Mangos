@@ -1,14 +1,14 @@
-import React from 'react';
-import { Actions } from 'react-native-router-flux';
+import React from 'react'
+import { Actions } from 'react-native-router-flux'
 import {
   View,
   Text,
   TouchableOpacity,
   Image
-} from 'react-native';
+} from 'react-native'
 
-import styles from './styles';
-import images from '../../config/images';
+import styles from './styles'
+import images from '../../config/images'
 
 const Login = ({ authenticate }) => {
   return (
