@@ -9,6 +9,7 @@
   "dependencies": {
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.3",
+    "react-native-linear-gradient": "^2.0.0",
     "react-native-router-flux": "3.38.0"
   },
   "devDependencies": {
@@ -21,6 +22,8 @@
     "preset": "react-native"
   },
   "rnpm": {
-     "assets": ["./assets"]
+    "assets": [
+      "./assets"
+    ]
   }
 }

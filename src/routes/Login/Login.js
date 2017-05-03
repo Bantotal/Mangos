@@ -6,13 +6,14 @@ import {
   TouchableOpacity,
   Image
 } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
 
 import styles from './styles'
 import images from '../../config/images'
 
 const Login = ({ authenticate }) => {
   return (
-    <View style={styles.container}>
+    <LinearGradient colors={['#020F1D', '#13212E']} style={styles.container} >
       <View style={styles.logoView}>
         <Image source={images.logo} />
         <Text style={styles.title}>MANGOS</Text>
@@ -26,7 +27,7 @@ const Login = ({ authenticate }) => {
           <Text style={styles.textLogin}>INGRESAR</Text>
         </TouchableOpacity>
       </View> 
-    </View>
+    </LinearGradient>
   )
 }
 
