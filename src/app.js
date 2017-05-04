@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AppRegistry ,StyleSheet} from 'react-native'
+import { AppRegistry , StyleSheet, Platform } from 'react-native'
 import {
   Scene,
   Router,
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   navBarTitle:{
       color:'#FFFFFF',
       fontSize: 22,
-      fontFamily: 'Dhurjati-Regular',
+      fontFamily: (Platform.OS === 'ios') ? 'Dhurjati' : 'Dhurjati-Regular',
   },
 })
 

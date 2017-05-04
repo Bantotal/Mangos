@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -14,7 +14,7 @@ export default StyleSheet.create({
   title: {
     color:'#FFFFFF',
     fontSize: 35,
-    fontFamily: 'Dhurjati-Regular',
+    fontFamily: (Platform.OS === 'ios') ? 'Dhurjati' : 'Dhurjati-Regular',
   },
   text: {
     color:'#FFFFFF',
