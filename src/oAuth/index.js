@@ -10,6 +10,17 @@ const oAuth = {
     Linking.addEventListener('url', (event) => {
       const url = event.url
       const code = url.substring(url.indexOf("=") + 1)
+      fetch('https://mywebsite.com/endpoint/', {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+        }, 
+        body: JSON.stringify({
+          firstParam: 'yourValue',
+          secondParam: 'yourOtherValue',
+        })
+      })
       Linking.removeEventListener('url', this._handleOpenURL)    
     })
 
