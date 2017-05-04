@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 export default StyleSheet.create({
   container: {
@@ -8,28 +8,28 @@ export default StyleSheet.create({
   logoView: {
     flex: 0.4,
     justifyContent: 'center', 
-    marginHorizontal: 60,
+    marginHorizontal: 40,
   },
   title: {
     color:'#FFFFFF',
-    fontSize: 35,
-    fontFamily: 'Dhurjati',
+    fontSize: 32,
+    fontFamily: (Platform.OS === 'ios') ? 'Dhurjati' : 'Dhurjati-Regular',
   },
   textView:{
     flex: 0.6,
   },
   text: {
     color:'#FFFFFF',
-    fontSize: 38,
+    fontSize: 36,
     fontFamily: 'Helvetica-Light',
-    marginHorizontal: 60
+    marginHorizontal: 40
   }, 
    text2: {
     color:'#FFFFFF',
-    fontSize: 38,
+    fontSize: 36,
     fontWeight: '500',
     fontFamily: 'Helvetica-Light',
-    marginHorizontal: 60
+    marginHorizontal: 40
   }, 
   loginButton: {
     alignItems:'center',
