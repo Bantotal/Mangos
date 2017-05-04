@@ -11,7 +11,9 @@ class LoginContainer extends Component {
   }
 
   _authenticate() {
-    oAuth.bdevelopers(constants.auth.client_id)
+    oAuth.bdevelopers(constants.auth)
+      .then(response => console.warn(`response ${JSON.stringify(response)}`))
+      .catch(err => console.log(err))
   }
 
   render() {

@@ -1,29 +1,50 @@
 import { Linking } from 'react-native'
+import base64 from 'base-64'
+
+import constants from '../config/constants'
 
 const oAuth = {
-  bdevelopers: (client_id, callback) => {
-    url = `http://localhost:8090/auth/dialog/authorize?client_id=${client_id}&response_type=code&redirect_uri=mangos://authorize/`
-    
-    Linking.openURL(url)
-      .catch(err => console.error('An error occurred', err))
+  bdevelopers: (opts, callback) => {
+    return new Promise((resolve, reject) => {
+      url = `${constants.urls.authRedirect}?client_id=${opts.client_id}&response_type=code&redirect_uri=mangos://authorize/`
+      
+      Linking.openURL(url)
+        .catch(err => console.error('An error occurred', err))
 
-    Linking.addEventListener('url', (event) => {
-      const url = event.url
-      const code = url.substring(url.indexOf("=") + 1)
-      fetch('https://mywebsite.com/endpoint/', {
-        method: 'POST',
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json',
-        }, 
-        body: JSON.stringify({
-          firstParam: 'yourValue',
-          secondParam: 'yourOtherValue',
+      Linking.addEventListener('url', (event) => {
+        const url = event.url
+        const code = url.substring(url.indexOf("=") + 1)
+
+        const string = opts.client_id + ':' + opts.client_secret
+        const auth = 'Basic ' + base64.encode(string)
+
+        fetch(constants.urls.authToken, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': auth
+          }, 
+          body: JSON.stringify({
+            client: opts.client_id,
+            code,
+            redirect_uri: 'mangos://authorize/',
+            grant_type: 'authorization_code'
+          })
         })
-      })
-      Linking.removeEventListener('url', this._handleOpenURL)    
-    })
+          .then(response => {
+            if(response.status == 200)
+              return response.json()
+            else 
+              resolve(response)
+          })
+          .then(response => {
+            resolve(response)
+          })
+          .catch(err => reject(err))
 
+        Linking.removeEventListener('url', this._handleOpenURL)    
+      })
+    })
   },
 }
 
