@@ -23,7 +23,7 @@ const Login = ({ authenticate }) => {
         <Text style={styles.text}>cuanto dinero tienes</Text>
       </View>
       <View>
-        <TouchableOpacity  style={styles.loginButton} onPress={authenticate} >
+        <TouchableOpacity style={styles.loginButton} onPress={authenticate} >
           <Text style={styles.textLogin}>INGRESAR</Text>
         </TouchableOpacity>
       </View> 
