@@ -1,44 +1,66 @@
 import React from 'react';
 import {
   View,
-  Text
+  Text,
+  TouchableWithoutFeedback
 } from 'react-native';
 
+import PropTypes from 'prop-types';
+
 import styles from './styles';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import Swiper from '../../components/Swiper';
+import * as Animatable from 'react-native-animatable';
 
 
 
-const Home = () => {
+const Home = ({movimientos, cuentas, heart, favorite, index, loadingData}) => {
   return (
-    <View style={styles.container}>     
+    <View style={styles.container}>
+
       <View style={styles.cuenta}>
-         <View style={styles.containerCuenta}>
-            <Text style={styles.textSaldo}>$ 2165465</Text>
-            <Text style={styles.textMovimientos}>corazon</Text>
-        </View>
-        <Text style={styles.textCuenta2}>Saldo actual</Text> 
-        <Text style={styles.textCuenta}>Cuenta</Text> 
+        <Swiper index={index} loadingData={loadingData}>
+          {cuentas.map((item) => {
+              return (
+                <View key={item.uid}>
+                  <View style={styles.containerCuenta}>
+                    <Text style={styles.textSaldo}>{item.currency}{item.balance}</Text>
+                    <TouchableWithoutFeedback onPress={()=>favorite(i)}>
+                      {heart?
+                        <Icon name='heart' color='#900'  size={22} />:<Icon name='heart-o' color='#900' size={22} />
+                      }
+                    </TouchableWithoutFeedback>
+                  </View>
+                  <Text style={styles.textCuenta2}>Saldo actual</Text>
+                  <Text style={styles.textCuenta}>{item.description}</Text>
+                </View>
+              )
+            })
+          }
+        </Swiper>
       </View>
-      <View style={styles.movimientos}>
-        <Text style={styles.titleMovimientos}>MOVIMIENTOS</Text>
-        <View style={styles.containerMovimientos}>
-          <Text style={styles.textMovimientos}>retiro</Text>
-          <Text style={styles.textMovimientos}>+500</Text>
-        </View>
-        <View style={styles.containerMovimientos}>
-          <Text style={styles.textMovimientos}>retiro</Text>
-          <Text style={styles.textMovimientos}>+500</Text>
-        </View>
-        <View style={styles.containerMovimientos}>
-          <Text style={styles.textMovimientos}>retiro</Text>
-          <Text style={styles.textMovimientos}>+500</Text>
-        </View>
+
+      <View style={styles.movimientos} >
+        <Text style={styles.titleMovimientos}>MOVIMIENTOS</Text> 
+         {movimientos.map((item2) => {
+            return (
+              <View key={item2.uid} style={styles.containerMovimientos}>
+                <Text style={styles.textMovimientos}>{item2.reason}</Text>
+                <Text style={styles.textMovimientos}>{item2.currency} {item2.ammount}</Text>
+              </View>
+            )
+          })}
       </View>
+
     </View>
   );
 };
 
 Home.propTypes = {
+  cuentas: PropTypes.array,
+  movimientos: PropTypes.array,
+  favorite: PropTypes.func,
+  loadingData: PropTypes.func,
 };
 
 export default Home;

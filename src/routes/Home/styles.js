@@ -14,7 +14,7 @@ export default StyleSheet.create({
       marginHorizontal: 30,   
   },
   containerCuenta: {
-    marginTop: 60,
+    marginTop: 70,
     flexDirection: 'row',
     justifyContent: 'space-between',
      marginHorizontal: 30,
