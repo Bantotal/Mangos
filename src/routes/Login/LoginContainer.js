@@ -1,17 +1,59 @@
-import React, { Component } from 'react';
-import Login from './Login';
-import SplashScreen from 'react-native-splash-screen'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import Login from './Login'
+import { Actions } from 'react-native-router-flux'
+
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import oAuth from '../../oAuth'
+import constants from '../../config/constants'
+
+import actions from '../../redux/actions'
 
 class LoginContainer extends Component {
- 
-  componentDidMount() {
-     SplashScreen.hide();
+  constructor () {
+    super()
+    this.state = {}
+    this._authenticate = this._authenticate.bind(this)
   }
-  render() {
+
+  _authenticate () {
+    oAuth.bdevelopers(constants.auth)
+      .then(response => {
+        this.props.actions.authenticate(response)
+      })
+      .catch(err => console.log(err))
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.auth) {
+      Actions.home()
+    }
+  }
+
+  render () {
     return (
-      <Login/>
+      <Login authenticate={this._authenticate} />
     )
   }
 }
 
-export default LoginContainer;
+LoginContainer.propTypes = {
+  actions: PropTypes.object,
+  auth: PropTypes.object // eslint-disable-line
+}
+
+const mapStateToProps = (state, props) => {
+  return {
+    auth: state.auth
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)

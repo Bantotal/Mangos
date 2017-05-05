@@ -1,42 +1,38 @@
-import React from 'react';
-import { Actions } from 'react-native-router-flux';
+import React from 'react'
+import PropTypes from 'prop-types'
 import {
   View,
   Text,
   TouchableOpacity,
   Image
-} from 'react-native';
+} from 'react-native'
+import LinearGradient from 'react-native-linear-gradient'
 
-import styles from './styles';
-import images from '../../config/images';
+import styles from './styles'
+import images from '../../config/images'
 
- const handleLoginButtonPress = () => {
-    Actions.home();
-}
-const Login = () => {
+const Login = ({ authenticate }) => {
   return (
-    <View style={styles.container}>
-      <View>
-        <View style={styles.logoView}>
-          <Image source={images.logo} style={styles.logo} />
-          <Text style={styles.title}>MANGOS</Text>
-        </View>
-        <View style={styles.textView}>
-          <Text style={styles.text}>Consulta</Text> 
-          <Text style={styles.text2}>rápidamente</Text> 
-          <Text style={styles.text}>cuanto dinero tienes</Text>
-        </View>
+    <LinearGradient colors={['#020F1D', '#13212E']} style={styles.container} >
+      <View style={styles.logoView}>
+        <Image source={images.logo} />
+        <Text style={styles.title}>MANGOS</Text>
+      </View>
+      <View style={styles.textView}>
+        <Text style={styles.text2}>Rápidamente</Text>
+        <Text style={styles.text}>cuanto dinero tienes</Text>
       </View>
       <View>
-        <TouchableOpacity  style={styles.loginButton} onPress={ handleLoginButtonPress } >
+        <TouchableOpacity style={styles.loginButton} onPress={authenticate} >
           <Text style={styles.textLogin}>INGRESAR</Text>
         </TouchableOpacity>
-      </View> 
-    </View>
-  );
-};
+      </View>
+    </LinearGradient>
+  )
+}
 
 Login.propTypes = {
-};
+  authenticate: PropTypes.func
+}
 
-export default Login;
+export default Login

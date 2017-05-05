@@ -1,48 +1,46 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native'
 
 export default StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',    
-    backgroundColor: '#020F1D'
+    backgroundColor: 'transparent'
   },
   logoView: {
-    marginTop: 80,
-    marginLeft: 60,
-  },
-  logo: {
+    flex: 0.4,
+    justifyContent: 'center',
+    marginHorizontal: 40
   },
   title: {
-    color:'#FFFFFF',
-    fontSize: 35,
-    fontFamily: 'Dhurjati-Regular',
+    color: '#FFFFFF',
+    fontSize: 32,
+    fontFamily: (Platform.OS === 'ios') ? 'Dhurjati' : 'Dhurjati-Regular'
   },
-  textView:{
-     marginTop: 10,
+  textView: {
+    flex: 0.6
   },
   text: {
-    color:'#FFFFFF',
-    fontSize: 38,
+    color: '#FFFFFF',
+    fontSize: 36,
     fontFamily: 'Helvetica-Light',
-    marginLeft: 60
-  }, 
-   text2: {
-    color:'#FFFFFF',
-    fontSize: 38,
+    marginHorizontal: 40
+  },
+  text2: {
+    color: '#FFFFFF',
+    fontSize: 36,
     fontWeight: '500',
     fontFamily: 'Helvetica-Light',
-    marginLeft: 60
-  }, 
-  loginButton: {
-    alignItems:'center',
-    justifyContent: 'center', 
-    backgroundColor: '#E2D755',
-    height:80
+    marginHorizontal: 40
   },
-  textLogin:{
+  loginButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#E2D755',
+    height: 90
+  },
+  textLogin: {
     fontSize: 24,
     fontWeight: '500',
     fontFamily: 'Helvetica-Bold',
     color: '#020F1D'
   }
-});
+})

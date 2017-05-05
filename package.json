@@ -4,25 +4,42 @@
   "private": true,
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
-    "test": "jest"
+    "test": "jest",
+    "lint": "eslint ."
   },
   "dependencies": {
+    "base-64": "^0.1.0",
     "prop-types": "^15.5.8",
     "react": "16.0.0-alpha.6",
     "react-native": "0.43.3",
-    "react-native-animatable": "^1.1.1",
-    "react-native-router-flux": "^3.38.0",
-    "react-native-splash-screen": "^2.0.0",
-    "react-native-tab-view": "0.0.59",
+    "react-native-linear-gradient": "^2.0.0",
+    "react-native-router-flux": "3.38.0",
+    "react-redux": "^5.0.4",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.2.0",
     "react-native-vector-icons": "^4.0.1"
   },
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "babel-jest": "19.0.0",
     "babel-preset-react-native": "1.9.1",
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-config-standard-react": "^5.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.2",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-react": "^6.10.3",
+    "eslint-plugin-standard": "^3.0.1",
     "jest": "19.0.2",
     "react-test-renderer": "16.0.0-alpha.6"
   },
   "jest": {
     "preset": "react-native"
+  },
+  "rnpm": {
+    "assets": [
+      "./assets"
+    ]
   }
 }

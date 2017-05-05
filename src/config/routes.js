@@ -1,18 +1,14 @@
-import React from 'react';
-import Login from '../routes/Login';
-import Home from '../routes/Home';
-import Splash from '../routes/Splash';
+import React from 'react'
+import Login from '../routes/Login'
+import Home from '../routes/Home'
 
 export const routes = {
-  getLogin() {
-    return <Login />;
+  getLogin () {
+    return <Login />
   },
-  getHome() {
-    return <Home />;
-  },
-  getSplash() {
-    return <Splash />;
-  },
-};
+  getHome () {
+    return <Home />
+  }
+}
 
-export default routes;
+export default routes
