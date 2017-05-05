@@ -30,7 +30,13 @@ const Home = ({movimientos, cuentas, heart, favorite, index, loadingData}) => {
                     </TouchableWithoutFeedback>
                   </View>
                   <Text style={styles.textCuenta2}>Saldo actual</Text>
-                  <Text style={styles.textCuenta}>{item.description}</Text>
+                   <View style={styles.marginTop}>
+                    { item.productType == "CC" ?
+                         <Text style={styles.textCuenta}>Cuenta corriente</Text>:<Text style={styles.textCuenta}>Caja de ahorro</Text>
+                    }                 
+                    <Text style={styles.textCuenta2}>{item.description}</Text>
+                  </View>
+                
                 </View>
               )
             })
@@ -43,9 +49,15 @@ const Home = ({movimientos, cuentas, heart, favorite, index, loadingData}) => {
          {movimientos.map((item2) => {
             return (
               <View key={item2.uid} style={styles.containerMovimientos}>
-                <Text style={styles.textMovimientos}>{item2.reason}</Text>
-                <Text style={styles.textMovimientos}>{item2.currency} {item2.ammount}</Text>
+                <View>
+                  <Text style={styles.textMovimientos}>{item2.reason}</Text>
+                  <Text style={styles.textMovimientos2}>hace dos horas</Text>
+                </View>
+                {item2.type == "Credit" ? 
+                   <Text style={[styles.textMovimientos, styles.credit]}> +{item2.ammount}</Text>: <Text style={[styles.textMovimientos, styles.debit]}> -{item2.ammount}</Text>
+                }
               </View>
+
             )
           })}
       </View>

@@ -2,11 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
-   // justifyContent: 'space-between',  
-    // alignItems: 'center',
-    // justifyContent: 'center',
-     
+    flex: 1     
   },
   containerMovimientos: {
      flexDirection: 'row',
@@ -21,27 +17,24 @@ export default StyleSheet.create({
   },
   text: {
     color:'#FFFFFF',
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: 'Helvetica-Light',
-    //marginLeft: 30
   },
   textSaldo: {
     color:'#E2D755',
-    fontSize: 30,
+    fontSize: 28,
     fontWeight: '500',
     fontFamily: 'Helvetica-Bold',
-    //marginHorizontal: 30
   },
   textCuenta:{   
     color:'#FFFFFF',
-    fontSize: 18,
+    fontSize: 16,
     fontFamily: 'Helvetica-Light',
     marginHorizontal: 30,
-    //marginLeft: 30
   },
   textCuenta2: {
     color:'#CBC1B4',
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: 'Helvetica-Light',
     marginLeft: 30
   },
@@ -49,18 +42,30 @@ export default StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
     color:'#CBC1B4',
-    fontSize: 14,
+    fontSize: 12,
     fontFamily: 'Helvetica-Light',
     marginHorizontal: 30,
-    //marginLeft: 30
   },
   textMovimientos:{
     marginTop: 20,
     color:'#FFFFFF',
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: 'Helvetica-Light',
-    //marginHorizontal: 30
   },
+   textMovimientos2:{  
+    color:'#CBC1B4',
+    fontSize: 10,
+    fontFamily: 'Helvetica-Light',
+  },
+  marginTop:{
+    marginTop:10
+  },
+  credit: {
+    color:'#27E570',
+  },
+  debit:{
+    color:'#FF2851',
+  },  
   cuenta: {
     flex: 0.4,   
     backgroundColor: '#061728'
