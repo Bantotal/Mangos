@@ -10,8 +10,6 @@ import PropTypes from 'prop-types';
 import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Swiper from '../../components/Swiper';
-import * as Animatable from 'react-native-animatable';
-
 
 
 const Home = ({movimientos, cuentas, heart, favorite, index, loadingData}) => {
