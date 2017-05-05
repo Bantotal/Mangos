@@ -56,7 +56,7 @@ const api = {
             uid: "AA45GH5TM789DS34-p",
             transactionId: "ASD56F54G890KKL",
             signature: "a4e29a77cc84c393da1da7d06beb0ec0d12ae58314e26b137f913f4f85e25e2f",
-            type: "Debit",
+            type: "Credit",
             date: "2016-11-18T17:59:11.858Z",
             valueDate: "2016-11-18T17:59:11.858Z",
             balance: "14060-p",
