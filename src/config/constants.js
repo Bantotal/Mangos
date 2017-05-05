@@ -1,11 +1,11 @@
 const constants = {
   auth: {
-    client_id: 'Ki7OYsnueyHlEwBHLcsoATBHpiuUq5gq',
-    client_secret: '4s9jyQ4QRV5NevmJq434oWepxgIFXgtb'
+	client_id: 'KMcjCZvAO0EyezAq7u3dfzfuAjNBNzKc',
+	client_secret: 'Qx96KDNXUJYv5MqZAJTnooGbiGpibECM'
   },
   urls: {
-    authRedirect: 'http://localhost:8090/auth/dialog/authorize',
-    authToken: 'http://localhost:8090/auth/oauth/token'
+	authRedirect: 'https://developers.bantotal.com/auth/dialog/authorize',
+	authToken: 'https://developers.bantotal.com/auth/oauth/token'
   }
 }
 
