@@ -1,5 +1,5 @@
 import React from 'react'
-import { Actions } from 'react-native-router-flux'
+import PropTypes from 'prop-types'
 import {
   View,
   Text,
@@ -19,16 +19,20 @@ const Login = ({ authenticate }) => {
         <Text style={styles.title}>MANGOS</Text>
       </View>
       <View style={styles.textView}>
-        <Text style={styles.text2}>Rápidamente</Text> 
+        <Text style={styles.text2}>Rápidamente</Text>
         <Text style={styles.text}>cuanto dinero tienes</Text>
       </View>
       <View>
         <TouchableOpacity style={styles.loginButton} onPress={authenticate} >
           <Text style={styles.textLogin}>INGRESAR</Text>
         </TouchableOpacity>
-      </View> 
+      </View>
     </LinearGradient>
   )
+}
+
+Login.propTypes = {
+  authenticate: PropTypes.func
 }
 
 export default Login

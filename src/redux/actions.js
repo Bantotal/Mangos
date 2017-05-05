@@ -12,5 +12,5 @@ const authenticate = (auth) => {
 }
 
 export default {
-  authenticate,
+  authenticate
 }

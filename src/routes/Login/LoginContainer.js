@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import Login from './Login'
 import { Actions } from 'react-native-router-flux'
 
@@ -11,13 +12,13 @@ import constants from '../../config/constants'
 import actions from '../../redux/actions'
 
 class LoginContainer extends Component {
-  constructor() {
+  constructor () {
     super()
     this.state = {}
-    this._authenticate = this._authenticate.bind(this);
+    this._authenticate = this._authenticate.bind(this)
   }
 
-  _authenticate() {
+  _authenticate () {
     oAuth.bdevelopers(constants.auth)
       .then(response => {
         this.props.actions.authenticate(response)
@@ -25,17 +26,22 @@ class LoginContainer extends Component {
       .catch(err => console.log(err))
   }
 
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.auth) {
+  componentWillReceiveProps (nextProps) {
+    if (nextProps.auth) {
       Actions.home()
     }
   }
 
-  render() {
+  render () {
     return (
       <Login authenticate={this._authenticate} />
     )
   }
+}
+
+LoginContainer.propTypes = {
+  actions: PropTypes.object,
+  auth: PropTypes.object // eslint-disable-line
 }
 
 const mapStateToProps = (state, props) => {
