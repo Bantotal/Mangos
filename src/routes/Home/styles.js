@@ -4,6 +4,24 @@ export default StyleSheet.create({
   container: {
     flex: 1
   },
+  containerCargando: {
+    flex: 1,
+    backgroundColor: '#061728',
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  cargando: {
+    color: '#CBC1B4',
+    marginTop: 200
+  },
+  containerCargandoMovimientos: {
+    flexDirection: 'row',
+    justifyContent: 'center'
+  },
+  cargandoMovimientos: {
+    color: '#CBC1B4',
+    marginTop: 100
+  },
   containerCuenta: {
     flex: 0.4,
     backgroundColor: '#061728',

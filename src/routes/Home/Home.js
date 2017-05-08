@@ -12,7 +12,11 @@ import Swiper from '../../components/Swiper'
 
 const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) => {
   return (
-    <View style={styles.container}>
+    cuentas.length === 0
+    ? <View style={styles.containerCargando}>
+      <Text style={styles.cargando}>Cargando cuentas...</Text>
+    </View>
+    : <View style={styles.container}>
       <View style={styles.containerCuenta}>
         <Swiper index={index} cuentas={cuentas} loadMovements={loadMovements}>
           {
@@ -47,7 +51,11 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
       <View style={styles.containerMovimientos}>
         <Text style={styles.tituloMovimientos}>MOVIMIENTOS</Text>
         {
-          movimientos.map(item => {
+          movimientos.length === 0
+          ? <View style={styles.containerCargandoMovimientos}>
+            <Text style={styles.cargandoMovimientos}>Cargando los últimos movimientos...</Text>
+          </View>
+          : movimientos.map(item => {
             return (
               <View key={item.uid} style={styles.movimiento}>
                 <View>
