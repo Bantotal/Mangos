@@ -7,7 +7,7 @@ const api = {
     async get () {
       try {
         let token = store.getState().auth.access_token || null
-        let result = await fetch(`${url}/accounts`, {
+        let result = await fetch(`${url}/accounts`, { // eslint-disable-line
           method: 'GET',
           headers: {
             'Accept': 'application/json',
@@ -15,8 +15,8 @@ const api = {
           }
         })
         let resultJson = await result.json()
-        return resultJson
         console.log(`resultJson accounts ${JSON.stringify(resultJson)}`)
+        return resultJson
       } catch (err) {
         console.log(`error ${JSON.stringify(err)}`)
       }
@@ -27,7 +27,7 @@ const api = {
     async get (uid) {
       try {
         let token = store.getState().auth.access_token || null
-        let result = await fetch(`${url}/accounts/${uid}/movements`, {
+        let result = await fetch(`${url}/accounts/${uid}/movements`, { // eslint-disable-line
           method: 'GET',
           headers: {
             'Accept': 'application/json',

@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Swiper
  * Renders a swipable set of screens passed as children,
@@ -140,7 +141,7 @@ export default class OnboardingScreens extends Component {
     this.setState({
       index
     });
-    this.props.loadingData(index)
+    this.props.loadMovements(index)
   }
 
   /**

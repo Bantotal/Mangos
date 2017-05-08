@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
   },
   navBarTitle: {
     color: '#FFFFFF',
-    fontSize: 22,
     fontFamily: (Platform.OS === 'ios') ? 'Dhurjati' : 'Dhurjati-Regular'
   }
 })
