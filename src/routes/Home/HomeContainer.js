@@ -4,8 +4,9 @@ import {
 } from 'react-native';
 import Home from './Home';
 import Swiper from '../../components/Swiper';
-import api from '../../api'
- 
+import api from '../../api';
+import moment from 'moment'
+
 class HomeContainer extends Component {
   constructor() {   
     super();
@@ -16,7 +17,7 @@ class HomeContainer extends Component {
       cuentas: null,
       index:0,
       heart:false
-    };        
+    };   
   }
 
   componentWillMount() {
@@ -28,6 +29,7 @@ class HomeContainer extends Component {
       .then((response) => {
         this.setState({ cuentas: response })
       })  
+   
   }
 
   favorite(key) {  

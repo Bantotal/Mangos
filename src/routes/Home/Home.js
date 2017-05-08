@@ -11,6 +11,8 @@ import styles from './styles';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Swiper from '../../components/Swiper';
 import * as Animatable from 'react-native-animatable';
+import moment from 'moment'
+
 
 
 
@@ -20,7 +22,7 @@ const Home = ({movimientos, cuentas, heart, favorite, index, loadingData}) => {
 
       <View style={styles.cuenta}>
         <Swiper index={index} loadingData={loadingData}>
-          {cuentas.map((item) => {
+          {cuentas.map((item) => {           
               return (
                 <View key={item.uid}>
                   <View style={styles.containerCuenta}>
@@ -49,11 +51,15 @@ const Home = ({movimientos, cuentas, heart, favorite, index, loadingData}) => {
       <View style={styles.movimientos} >
         <Text style={styles.titleMovimientos}>MOVIMIENTOS</Text> 
          {movimientos.map((item2) => {
+           var localLocale = moment();
+            console.warn(`LPM ${moment.locale()}`)
+            moment.locale('es')
+            console.warn(`LPM2 ${moment.locale()}`)
             return (
               <View key={item2.uid} style={styles.containerMovimientos}>
                 <View>
                   <Text style={styles.textMovimientos}>{item2.reason}</Text>
-                  <Text style={styles.textMovimientos2}>hace dos horas</Text>
+                  <Text style={styles.textMovimientos2}>{localLocale(item2.valueDate).fromNow()}</Text>
                 </View>
                 {item2.type == "Credit" ? 
                    <Text style={[styles.textMovimientos, styles.credit]}> +{item2.ammount}</Text>: <Text style={[styles.textMovimientos, styles.debit]}> -{item2.ammount}</Text>

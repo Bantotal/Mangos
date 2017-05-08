@@ -44,7 +44,7 @@ const api = {
             signature: "a4e29a77cc84c393da1da7d06beb0ec0d12ae58314e26b137f913f4f85e25e2f",
             type: "Debit",
             date: "2016-11-18T17:59:11.858Z",
-            valueDate: "2016-11-18T17:59:11.858Z",
+            valueDate: "2017-05-08T15:42:16.858Z",
             balance: "14060",
             currency: "USD",
             ammount: "500",
