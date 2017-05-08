@@ -20,7 +20,7 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
               return (
                 <View key={item.uid}>
                   <View style={styles.cuenta}>
-                    <Text style={styles.saldo}>{item.currency} {item.balance}</Text>
+                    <Text style={styles.saldo}>{item.currency} {parseInt(item.balance).toLocaleString()}</Text>
                     <TouchableWithoutFeedback onPress={() => setFavorite(index)}>
                       {
                         heart
@@ -56,8 +56,8 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
                 </View>
                 {
                   item.type === 'Credit'
-                  ? <Text style={styles.credito}> +{item.ammount}</Text>
-                  : <Text style={styles.debito}> -{item.ammount}</Text>
+                  ? <Text style={styles.credito}> + {parseInt(item.ammount).toLocaleString()}</Text>
+                  : <Text style={styles.debito}> - {parseInt(item.ammount).toLocaleString()}</Text>
                 }
               </View>
             )

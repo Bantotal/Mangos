@@ -11,7 +11,7 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   cuenta: {
-    marginTop: (Platform.OS === 'ios') ? 120 : 70,
+    marginTop: (Platform.OS === 'ios') ? 100 : 70,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 30
@@ -60,7 +60,8 @@ export default StyleSheet.create({
   razon: {
     color: '#FFFFFF',
     fontSize: 16,
-    fontFamily: 'Helvetica-Light'
+    fontFamily: 'Helvetica-Light',
+    fontWeight: '400'
   },
   tiempo: {
     color: '#CBC1B4',
