@@ -2,7 +2,7 @@ import { StyleSheet, Platform } from 'react-native'
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   containerCuenta: {
     flex: 0.4,
@@ -79,6 +79,6 @@ export default StyleSheet.create({
     color: '#FF2851',
     fontSize: 16,
     fontFamily: 'Helvetica-Light',
-    fontWeight: '500',
+    fontWeight: '500'
   }
 })

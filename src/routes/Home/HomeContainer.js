@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
 import {
   Text
 } from 'react-native'
@@ -57,6 +58,12 @@ class HomeContainer extends Component {
       : <Text>Cargando...</Text>
     )
   }
+}
+
+HomeContainer.propTypes = {
+  actions: PropTypes.object,
+  accounts: PropTypes.array,
+  movements: PropTypes.array
 }
 
 const mapStateToProps = (state, props) => {
