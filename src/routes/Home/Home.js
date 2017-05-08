@@ -2,7 +2,8 @@ import React from 'react'
 import {
   View,
   Text,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  ActivityIndicator
 } from 'react-native'
 import PropTypes from 'prop-types'
 
@@ -14,7 +15,7 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
   return (
     cuentas.length === 0
     ? <View style={styles.containerCargando}>
-      <Text style={styles.cargando}>Cargando cuentas...</Text>
+        <ActivityIndicator color='white' />
     </View>
     : <View style={styles.container}>
       <View style={styles.containerCuenta}>
@@ -53,7 +54,7 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
         {
           movimientos.length === 0
           ? <View style={styles.containerCargandoMovimientos}>
-            <Text style={styles.cargandoMovimientos}>Cargando los últimos movimientos...</Text>
+            <ActivityIndicator style={styles.cargandoMovimientos} color='white' />
           </View>
           : movimientos.map(item => {
             return (
