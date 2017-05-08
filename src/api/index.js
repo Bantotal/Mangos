@@ -1,7 +1,7 @@
 import dummy from './dummy'
 import real from './real'
 
-const env = 'test'
+const env = 'production'
 
 function api () {
   if (env === 'test') {
