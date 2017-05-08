@@ -1,77 +1,83 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 
 export default StyleSheet.create({
   container: {
-    flex: 1
-  },
-  containerMovimientos: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    marginHorizontal: 30
+    flex: 1,
   },
   containerCuenta: {
-    marginTop: 70,
+    flex: 0.4,
+    backgroundColor: '#061728',
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  cuenta: {
+    marginTop: (Platform.OS === 'ios') ? 120 : 70,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 30
   },
-  text: {
-    color: '#FFFFFF',
-    fontSize: 12,
-    fontFamily: 'Helvetica-Light'
-  },
-  textSaldo: {
+  saldo: {
     color: '#E2D755',
     fontSize: 28,
     fontWeight: '500',
     fontFamily: 'Helvetica-Bold'
   },
-  textCuenta: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontFamily: 'Helvetica-Light',
-    marginHorizontal: 30
-  },
-  textCuenta2: {
+  label: {
     color: '#CBC1B4',
     fontSize: 12,
     fontFamily: 'Helvetica-Light',
-    marginLeft: 30
+    marginLeft: 30,
+    marginTop: 5
   },
-  titleMovimientos: {
+  infoProducto: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontFamily: 'Helvetica-Light',
+    marginHorizontal: 30,
+    marginTop: 5
+  },
+  producto: {
+    marginTop: 20
+  },
+  containerMovimientos: {
+    flex: 0.6,
+    backgroundColor: '#13212E'
+  },
+  tituloMovimientos: {
     marginTop: 20,
     marginBottom: 20,
     color: '#CBC1B4',
-    fontSize: 12,
+    fontSize: 14,
     fontFamily: 'Helvetica-Light',
     marginHorizontal: 30
   },
-  textMovimientos: {
+  movimiento: {
     marginTop: 20,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 30
+  },
+  razon: {
     color: '#FFFFFF',
     fontSize: 16,
     fontFamily: 'Helvetica-Light'
   },
-  textMovimientos2: {
+  tiempo: {
     color: '#CBC1B4',
-    fontSize: 10,
-    fontFamily: 'Helvetica-Light'
+    fontSize: 12,
+    fontFamily: 'Helvetica-Light',
+    marginTop: 5
   },
-  marginTop: {
-    marginTop: 10
+  credito: {
+    color: '#27E570',
+    fontSize: 16,
+    fontFamily: 'Helvetica-Light',
+    fontWeight: '500'
   },
-  credit: {
-    color: '#27E570'
-  },
-  debit: {
-    color: '#FF2851'
-  },
-  cuenta: {
-    flex: 0.4,
-    backgroundColor: '#061728'
-  },
-  movimientos: {
-    flex: 0.6,
-    backgroundColor: '#13212E'
+  debito: {
+    color: '#FF2851',
+    fontSize: 16,
+    fontFamily: 'Helvetica-Light',
+    fontWeight: '500',
   }
 })

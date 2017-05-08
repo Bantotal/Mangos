@@ -33,10 +33,10 @@ class HomeContainer extends Component {
       })
   }
 
-  loadMovements (uid) {
+  loadMovements (uid, index) {
     api().movimientos.get(uid)
       .then((result) => {
-        this.setState({ movimientos: result, index: uid })
+        this.setState({ movimientos: result, index })
       })
   }
 
@@ -47,7 +47,7 @@ class HomeContainer extends Component {
   render () {
     return (
       this.state.movimientos && this.state.cuentas
-      ? <Home index={this.state.index} cuentas={this.state.cuentas} heart={this.state.heart} movimientos={this.state.movimientos} loadMovements={this.state.loadMovements} setFavorite={this.setFavorite} />
+      ? <Home index={this.state.index} cuentas={this.state.cuentas} heart={this.state.heart} movimientos={this.state.movimientos} loadMovements={this.loadMovements} setFavorite={this.setFavorite} />
       : <Text>Cargando...</Text>
     )
   }

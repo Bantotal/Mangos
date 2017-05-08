@@ -13,30 +13,30 @@ import Swiper from '../../components/Swiper'
 const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.cuenta}>
-        <Swiper index={index} loadMovements={loadMovements}>
+      <View style={styles.containerCuenta}>
+        <Swiper index={index} cuentas={cuentas} loadMovements={loadMovements}>
           {
             cuentas.map(item => {
               return (
                 <View key={item.uid}>
-                  <View style={styles.containerCuenta}>
-                    <Text style={styles.textSaldo}>{item.currency}{item.balance}</Text>
+                  <View style={styles.cuenta}>
+                    <Text style={styles.saldo}>{item.currency} {item.balance}</Text>
                     <TouchableWithoutFeedback onPress={() => setFavorite(index)}>
                       {
                         heart
-                        ? <Icon name='heart' color='#900' size={22} />
-                        : <Icon name='heart-o' color='#900' size={22} />
+                        ? <Icon name='heart' color='#900' size={32} />
+                        : <Icon name='heart-o' color='#900' size={32} />
                       }
                     </TouchableWithoutFeedback>
                   </View>
-                  <Text style={styles.textCuenta2}>Saldo actual</Text>
-                  <View style={styles.marginTop}>
+                  <Text style={styles.label}>Saldo actual</Text>
+                  <View style={styles.producto}>
                     {
                       item.productType === 'CC'
-                      ? <Text style={styles.textCuenta}>Cuenta corriente</Text>
-                      : <Text style={styles.textCuenta}>Caja de ahorro</Text>
+                      ? <Text style={styles.infoProducto}>Cuenta corriente</Text>
+                      : <Text style={styles.infoProducto}>Caja de ahorro</Text>
                     }
-                    <Text style={styles.textCuenta2}>{item.description}</Text>
+                    <Text style={styles.label}>{item.description}</Text>
                   </View>
                 </View>
               )
@@ -44,20 +44,20 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
           }
         </Swiper>
       </View>
-      <View style={styles.movimientos}>
-        <Text style={styles.titleMovimientos}>MOVIMIENTOS</Text>
+      <View style={styles.containerMovimientos}>
+        <Text style={styles.tituloMovimientos}>MOVIMIENTOS</Text>
         {
           movimientos.map(item => {
             return (
-              <View key={item.uid} style={styles.containerMovimientos}>
+              <View key={item.uid} style={styles.movimiento}>
                 <View>
-                  <Text style={styles.textMovimientos}>{item.reason}</Text>
-                  <Text style={styles.textMovimientos2}>hace dos horas</Text>
+                  <Text style={styles.razon}>{item.reason}</Text>
+                  <Text style={styles.tiempo}>hace dos horas</Text>
                 </View>
                 {
                   item.type === 'Credit'
-                  ? <Text style={[styles.textMovimientos, styles.credit]}> +{item.ammount}</Text>
-                  : <Text style={[styles.textMovimientos, styles.debit]}> -{item.ammount}</Text>
+                  ? <Text style={styles.credito}> +{item.ammount}</Text>
+                  : <Text style={styles.debito}> -{item.ammount}</Text>
                 }
               </View>
             )
@@ -69,7 +69,7 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
 }
 
 Home.propTypes = {
-  index: PropTypes.string,
+  index: PropTypes.number,
   cuentas: PropTypes.array,
   movimientos: PropTypes.array,
   heart: PropTypes.bool,
