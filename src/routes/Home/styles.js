@@ -11,7 +11,6 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   cargando: {
-    color: '#CBC1B4',
     marginTop: 200
   },
   containerCargandoMovimientos: {
@@ -19,7 +18,6 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   cargandoMovimientos: {
-    color: '#CBC1B4',
     marginTop: 100
   },
   containerCuenta: {
