@@ -14,7 +14,6 @@ import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Swiper from '../../components/Swiper'
 
-
 const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) => {
   const viewMovimientos = movimientos.length
   // inicio DataSource para movimientos
@@ -45,12 +44,12 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
                   </View>
                   <Text style={styles.label}>Saldo actual</Text>
                   <View style={styles.producto}>
+                    <Text style={styles.infoProducto}>{item.description}</Text>
                     {
                       item.productType === 'CC'
-                      ? <Text style={styles.infoProducto}>Cuenta corriente</Text>
-                      : <Text style={styles.infoProducto}>Caja de ahorro</Text>
+                      ? <Text style={styles.label}>Cuenta corriente</Text>
+                      : <Text style={styles.label}>Caja de ahorro</Text>
                     }
-                    <Text style={styles.label}>{item.description}</Text>
                   </View>
                 </View>
               )
