@@ -75,7 +75,7 @@ export default StyleSheet.create({
     marginHorizontal: 30
   },
   movimiento: {
-    marginTop: 20,
+    marginTop: 25,
     flexDirection: 'row',
     justifyContent: 'space-between',
     marginHorizontal: 30
