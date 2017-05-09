@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import {
   View,
   Text,
-  TouchableOpacity,
   Image,
   Button
 } from 'react-native'
@@ -23,13 +22,13 @@ const Login = ({ authenticate }) => {
         <Text style={styles.text2}>Rápidamente</Text>
         <Text style={styles.text}>cuanto dinero tienes</Text>
       </View>
-      <View>
+      <View style={styles.buttonContainer}>
         <View style={styles.loginButton}>
-          <Button onPress={authenticate} title='Ingresar con Banco 1'
+          <Button style={styles.button} onPress={authenticate} title='Ingresar con Banco 1'
             color='#E7AA1A' accessibilityLabel='Ingresar con Banco 1' />
         </View>
         <View style={styles.loginButton}>
-          <Button style={styles.loginButton} onPress={authenticate} title='Ingresar con Banco 2'
+          <Button style={styles.button} onPress={authenticate} title='Ingresar con Banco 2'
             color='#F8DF4F' accessibilityLabel='Ingresar con Banco 2' />
         </View>
       </View>

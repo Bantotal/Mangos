@@ -39,7 +39,6 @@ const oAuth = {
           } else {
             resolve(result)
           }
-
         } catch (err) {
           console.log(`Linking.addEventListener error ${JSON.stringify(err)}`)
           reject(err)

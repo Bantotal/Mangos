@@ -7,13 +7,12 @@ import {
   Actions
 } from 'react-native-router-flux'
 import { Provider } from 'react-redux'
-import Icon from 'react-native-vector-icons/FontAwesome'
 
 import routes from './config/routes'
 import store from './redux/store'
 
 const salir = () => {
-  Actions.login()
+  Actions.login({type: ActionConst.RESET})
 }
 
 class Mangos extends Component {

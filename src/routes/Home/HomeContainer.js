@@ -37,7 +37,7 @@ class HomeContainer extends Component {
         // reordena cuentas para poner la favorita por delante
         const accounts = result
         accounts.sort((x, y) => {
-          return x.uid === value ? -1 : y.uid === value ? 1 : 0 
+          return x.uid === value ? -1 : y.uid === value ? 1 : 0
         })
         // setea valores
         this.props.actions.accounts(accounts)
