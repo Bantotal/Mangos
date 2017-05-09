@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
+import { AsyncStorage } from 'react-native'
 import PropTypes from 'prop-types'
-import moment from 'moment'
 
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
@@ -19,16 +19,23 @@ class HomeContainer extends Component {
     this.state = {
       movimientos: null,
       cuentas: null,
-      index:0,
-      heart:false
-    };   
+      index: 0,
+      heart: null
+    }
   }
 
   _loadAccounts () {
     api().cuentas.get()
-      .then(result => {
+      .then(async result => {
         this._loadMovements(result[0].uid)
         this.props.actions.accounts(result)
+        // carga valor de cuenta favorita
+        const value = await AsyncStorage.getItem('@MangosStore:cuentaFavorita')
+        if (value !== null){
+          this.setState({ heart: value })
+        } else {
+          this.setState({ heart: result[0].uid })
+        }
       })
   }
 
@@ -41,8 +48,13 @@ class HomeContainer extends Component {
       })
   }
 
-  _setFavorite (uid) {
-    // set favorite account
+  async _setFavorite (uid) {
+    try {
+      await AsyncStorage.setItem('@MangosStore:cuentaFavorita', uid)
+      this.setState({ heart: uid })
+    } catch (err) {
+      console.log(`_setFavorite error ${JSON.stringify(err)}`)
+    }
   }
 
   componentWillMount () {

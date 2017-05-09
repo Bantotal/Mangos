@@ -2,7 +2,7 @@ import React from 'react'
 import {
   View,
   Text,
-  TouchableWithoutFeedback,
+  TouchableHighlight,
   ActivityIndicator
 } from 'react-native'
 import PropTypes from 'prop-types'
@@ -16,7 +16,7 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
   return (
     cuentas.length === 0
     ? <View style={styles.containerCargando}>
-        <ActivityIndicator color='white' />
+      <ActivityIndicator color='white' />
     </View>
     : <View style={styles.container}>
       <View style={styles.containerCuenta}>
@@ -27,13 +27,13 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
                 <View key={item.uid}>
                   <View style={styles.cuenta}>
                     <Text style={styles.saldo}>{item.currency} {parseInt(item.balance).toLocaleString()}</Text>
-                    <TouchableWithoutFeedback onPress={() => setFavorite(index)}>
+                    <TouchableHighlight onPress={() => setFavorite(item.uid)}>
                       {
-                        heart
+                        heart === item.uid
                         ? <Icon name='heart' color='#900' size={32} />
                         : <Icon name='heart-o' color='#900' size={32} />
                       }
-                    </TouchableWithoutFeedback>
+                    </TouchableHighlight>
                   </View>
                   <Text style={styles.label}>Saldo actual</Text>
                   <View style={styles.producto}>
@@ -83,7 +83,7 @@ Home.propTypes = {
   index: PropTypes.number,
   cuentas: PropTypes.array,
   movimientos: PropTypes.array,
-  heart: PropTypes.bool,
+  heart: PropTypes.string,
   loadMovements: PropTypes.func,
   setFavorite: PropTypes.func
 }
