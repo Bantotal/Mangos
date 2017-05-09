@@ -14,8 +14,6 @@ import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Swiper from '../../components/Swiper'
 
-moment.locale('es')
-
 const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) => {
   const viewMovimientos = movimientos.length
   // inicio DataSource para movimientos
