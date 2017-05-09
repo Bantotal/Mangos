@@ -29,12 +29,19 @@ class HomeContainer extends Component {
     api().cuentas.get()
       .then(async result => {
         this._loadMovements(result[0].uid)
-        this.props.actions.accounts(result)
         // carga valor de cuenta favorita
         const value = await AsyncStorage.getItem('@MangosStore:cuentaFavorita')
         if (value !== null) {
+          // reordena cuentas para poner la favorita por delante
+          const accounts = result
+          accounts.sort((x, y) => {
+            return x.uid === value ? -1 : y.uid === value ? 1 : 0 
+          })
+          // setea valores
+          this.props.actions.accounts(accounts)
           this.setState({ heart: value })
         } else {
+          this.props.actions.accounts(result)
           this.setState({ heart: result[0].uid })
         }
       })
@@ -49,9 +56,9 @@ class HomeContainer extends Component {
       })
   }
 
-  async _setFavorite (uid) {
+  _setFavorite (uid) {
     try {
-      await AsyncStorage.setItem('@MangosStore:cuentaFavorita', uid)
+      AsyncStorage.setItem('@MangosStore:cuentaFavorita', uid)
       this.setState({ heart: uid })
     } catch (err) {
       console.log(`_setFavorite error ${JSON.stringify(err)}`)
