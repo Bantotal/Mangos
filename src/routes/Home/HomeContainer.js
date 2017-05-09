@@ -13,9 +13,9 @@ import actions from '../../redux/actions'
 class HomeContainer extends Component {
   constructor () {
     super()
-    this.loadAccounts = this.loadAccounts.bind(this)
-    this.loadMovements = this.loadMovements.bind(this)
-    this.setFavorite = this.setFavorite.bind(this)
+    this._loadAccounts = this._loadAccounts.bind(this)
+    this._loadMovements = this._loadMovements.bind(this)
+    this._setFavorite = this._setFavorite.bind(this)
     this.state = {
       movimientos: null,
       cuentas: null,
@@ -24,26 +24,15 @@ class HomeContainer extends Component {
     };   
   }
 
-  componentWillMount() {
-    api().movimientos.get(1)
-      .then((response) => {
-        this.setState({ movimientos: response })
-      })
-    api().cuentas.get()
-      .then((response) => {
-        this.setState({ cuentas: response })
-      })
-  }
-
-  loadAccounts () {
+  _loadAccounts () {
     api().cuentas.get()
       .then(result => {
-        this.loadMovements(result[0].uid)
+        this._loadMovements(result[0].uid)
         this.props.actions.accounts(result)
       })
   }
 
-  loadMovements (uid, index) {
+  _loadMovements (uid, index) {
     this.props.actions.movements([])
     this.setState({ index })
     api().movimientos.get(uid)
@@ -52,13 +41,17 @@ class HomeContainer extends Component {
       })
   }
 
+  _setFavorite (uid) {
+    // set favorite account
+  }
+
   componentWillMount () {
-    this.loadAccounts()
+    this._loadAccounts()
   }
 
   render () {
     return (
-      <Home index={this.state.index} cuentas={this.props.accounts} heart={this.state.heart} movimientos={this.props.movements} loadMovements={this.loadMovements} setFavorite={this.setFavorite} />
+      <Home index={this.state.index} cuentas={this.props.accounts} heart={this.state.heart} movimientos={this.props.movements} loadMovements={this._loadMovements} setFavorite={this._setFavorite} />
     )
   }
 }
