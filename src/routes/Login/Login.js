@@ -24,7 +24,7 @@ const Login = ({ authenticate }) => {
         <Text style={styles.text}>cuanto dinero tienes</Text>
       </View>
       <View>
-        <View style={{ marginBottom: 10}}>
+        <View style={styles.loginButton}>
           <Button onPress={authenticate} title='Ingresar con Banco 1'
             color='#E7AA1A' accessibilityLabel='Ingresar con Banco 1' />
         </View>
