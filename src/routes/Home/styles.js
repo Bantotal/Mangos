@@ -45,6 +45,12 @@ export default StyleSheet.create({
     marginLeft: 30,
     marginTop: 5
   },
+  tiempo: {
+    color: '#CBC1B4',
+    fontSize: 12,
+    fontFamily: 'Helvetica-Light',
+    marginTop: 5
+  },
   infoProducto: {
     color: '#FFFFFF',
     fontSize: 16,
@@ -78,12 +84,6 @@ export default StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Helvetica-Light',
     fontWeight: '400'
-  },
-  tiempo: {
-    color: '#CBC1B4',
-    fontSize: 12,
-    fontFamily: 'Helvetica-Light',
-    marginTop: 5
   },
   credito: {
     color: '#27E570',

@@ -31,7 +31,7 @@ class HomeContainer extends Component {
         this.props.actions.accounts(result)
         // carga valor de cuenta favorita
         const value = await AsyncStorage.getItem('@MangosStore:cuentaFavorita')
-        if (value !== null){
+        if (value !== null) {
           this.setState({ heart: value })
         } else {
           this.setState({ heart: result[0].uid })
