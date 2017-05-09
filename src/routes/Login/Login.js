@@ -4,7 +4,8 @@ import {
   View,
   Text,
   TouchableOpacity,
-  Image
+  Image,
+  Button
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 
@@ -23,9 +24,14 @@ const Login = ({ authenticate }) => {
         <Text style={styles.text}>cuanto dinero tienes</Text>
       </View>
       <View>
-        <TouchableOpacity style={styles.loginButton} onPress={authenticate} >
-          <Text style={styles.textLogin}>INGRESAR</Text>
-        </TouchableOpacity>
+        <View style={{ marginBottom: 5}}>
+          <Button onPress={authenticate} title='Ingresar con Banco 1'
+            color='#E7AA1A' accessibilityLabel='Ingresar con Banco 1' />
+        </View>
+        <View style={{ marginBottom: 5}}>
+          <Button style={styles.loginButton} onPress={authenticate} title='Ingresar con Banco 2'
+            color='#F8DF4F' accessibilityLabel='Ingresar con Banco 2' />
+        </View>
       </View>
     </LinearGradient>
   )
