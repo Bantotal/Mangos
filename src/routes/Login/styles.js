@@ -32,10 +32,8 @@ export default StyleSheet.create({
     marginHorizontal: 40
   },
   loginButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#E2D755',
-    height: 90
+    //marginTop: 10,
+    marginBottom: 50
   },
   textLogin: {
     fontSize: 24,
