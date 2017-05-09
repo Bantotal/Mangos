@@ -13,12 +13,15 @@ import moment from 'moment'
 
 const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) => {
   return (
-    <View style={styles.container}>
+    cuentas.length === 0
+    ? <View style={styles.containerCargando}>
+      <Text style={styles.cargando}>Cargando cuentas...</Text>
+    </View>
+    : <View style={styles.container}>
       <View style={styles.containerCuenta}>
         <Swiper index={index} cuentas={cuentas} loadMovements={loadMovements}>
           {
             cuentas.map(item => {
-
               return (
                 <View key={item.uid}>
                   <View style={styles.cuenta}>
@@ -49,16 +52,17 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
 
       <View style={styles.containerMovimientos}>
         <Text style={styles.tituloMovimientos}>MOVIMIENTOS</Text>
-         {movimientos.map((item2) => {
-           var localLocale = moment();
-            console.warn(`LPM ${moment.locale()}`)
-            moment.locale('es')
-            console.warn(`LPM2 ${moment.locale()}`)
+        {
+          movimientos.length === 0
+          ? <View style={styles.containerCargandoMovimientos}>
+            <Text style={styles.cargandoMovimientos}>Cargando los últimos movimientos...</Text>
+          </View>
+          : movimientos.map(item => {
             return (
               <View key={item.uid} style={styles.movimiento}>
                 <View>
                   <Text style={styles.textMovimientos}>{item2.reason}</Text>
-                  <Text style={styles.textMovimientos2}>{localLocale(item2.valueDate).fromNow()}</Text>
+                  <Text style={styles.textMovimientos2}>{moment(item2.valueDate).fromNow()}</Text>
                 </View>
                 {
                   item.type === 'Credit'

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
-import {
-  Text
-} from 'react-native';
-import Home from './Home';
-import Swiper from '../../components/Swiper';
-import api from '../../api';
+import PropTypes from 'prop-types'
 import moment from 'moment'
 
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+
+import Home from './Home'
+import api from '../../api'
+
+import actions from '../../redux/actions'
 
 class HomeContainer extends Component {
   constructor () {
@@ -30,22 +32,23 @@ class HomeContainer extends Component {
     api().cuentas.get()
       .then((response) => {
         this.setState({ cuentas: response })
-      })  
-   
+      })
   }
 
   loadAccounts () {
     api().cuentas.get()
       .then(result => {
         this.loadMovements(result[0].uid)
-        this.setState({ cuentas: result })
+        this.props.actions.accounts(result)
       })
   }
 
   loadMovements (uid, index) {
+    this.props.actions.movements([])
+    this.setState({ index })
     api().movimientos.get(uid)
-      .then((result) => {
-        this.setState({ movimientos: result, index })
+      .then(result => {
+        this.props.actions.movements(result)
       })
   }
 
@@ -55,11 +58,28 @@ class HomeContainer extends Component {
 
   render () {
     return (
-      this.state.movimientos && this.state.cuentas
-      ? <Home index={this.state.index} cuentas={this.state.cuentas} heart={this.state.heart} movimientos={this.state.movimientos} loadMovements={this.loadMovements} setFavorite={this.setFavorite} />
-      : <Text>Cargando...</Text>
+      <Home index={this.state.index} cuentas={this.props.accounts} heart={this.state.heart} movimientos={this.props.movements} loadMovements={this.loadMovements} setFavorite={this.setFavorite} />
     )
   }
 }
 
-export default HomeContainer
+HomeContainer.propTypes = {
+  actions: PropTypes.object,
+  accounts: PropTypes.array,
+  movements: PropTypes.array
+}
+
+const mapStateToProps = (state, props) => {
+  return {
+    accounts: state.accounts,
+    movements: state.movements
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    actions: bindActionCreators(actions, dispatch)
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(HomeContainer)
