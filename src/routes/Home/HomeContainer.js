@@ -24,35 +24,42 @@ class HomeContainer extends Component {
     }
   }
 
-  _loadAccounts () {
-    api().cuentas.get()
-      .then(async result => {
-        this._loadMovements(result[0].uid)
-        // carga valor de cuenta favorita
-        const value = await AsyncStorage.getItem('@MangosStore:cuentaFavorita')
-        if (value !== null) {
-          // reordena cuentas para poner la favorita por delante
-          const accounts = result
-          accounts.sort((x, y) => {
-            return x.uid === value ? -1 : y.uid === value ? 1 : 0 
-          })
-          // setea valores
-          this.props.actions.accounts(accounts)
-          this.setState({ heart: value })
-        } else {
-          this.props.actions.accounts(result)
-          this.setState({ heart: result[0].uid })
-        }
-      })
+  async _loadAccounts () {
+    try {
+      const result = await api().cuentas.get()
+
+      // carga movimientos
+      this._loadMovements(result[0].uid)
+
+      // carga valor de cuenta favorita
+      const value = await AsyncStorage.getItem('@MangosStore:cuentaFavorita')
+      if (value !== null) {
+        // reordena cuentas para poner la favorita por delante
+        const accounts = result
+        accounts.sort((x, y) => {
+          return x.uid === value ? -1 : y.uid === value ? 1 : 0 
+        })
+        // setea valores
+        this.props.actions.accounts(accounts)
+        this.setState({ heart: value })
+      } else {
+        this.props.actions.accounts(result)
+        this.setState({ heart: result[0].uid })
+      }
+    } catch (err) {
+      console.log(`_loadAccounts error ${JSON.stringify(err)}`)
+    }
   }
 
-  _loadMovements (uid, index) {
-    this.props.actions.movements([])
-    this.setState({ index })
-    api().movimientos.get(uid)
-      .then(result => {
-        this.props.actions.movements(result)
-      })
+  async _loadMovements (uid, index) {
+    try {
+      this.props.actions.movements([])
+      this.setState({ index })
+      const result = await api().movimientos.get(uid)
+      this.props.actions.movements(result)
+    } catch (err) {
+      console.log(`_loadMovements error ${JSON.stringify(err)}`)
+    }
   }
 
   _setFavorite (uid) {
