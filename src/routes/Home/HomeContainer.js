@@ -15,7 +15,6 @@ class HomeContainer extends Component {
     super()
     this.loadAccounts = this.loadAccounts.bind(this)
     this.loadMovements = this.loadMovements.bind(this)
-    this.setFavorite = this.setFavorite.bind(this)
     this.state = {
       movimientos: null,
       cuentas: null,

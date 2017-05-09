@@ -62,8 +62,8 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
             return (
               <View key={item.uid} style={styles.movimiento}>
                 <View>
-                  <Text style={styles.textMovimientos}>{item2.reason}</Text>
-                  <Text style={styles.textMovimientos2}>{moment(item2.valueDate).fromNow()}</Text>
+                  <Text style={styles.razon}>{item.reason}</Text>
+                  <Text style={styles.tiempo}>{moment(item.valueDate).fromNow()}</Text>
                 </View>
                 {
                   item.type === 'Credit'
