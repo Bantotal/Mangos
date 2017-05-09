@@ -1,3 +1,4 @@
+/* eslint-disable */
 /**
  * Swiper
  * Renders a swipable set of screens passed as children,
@@ -37,7 +38,8 @@ export default class OnboardingScreens extends Component {
     // Do not adjust content behind nav-, tab- or toolbars automatically
     automaticallyAdjustContentInsets: false,
     // Fisrt is screen is active
-    index: 0
+    index: 0,
+    cuentas: []
   };
 
   state = this.initState(this.props);
@@ -140,7 +142,7 @@ export default class OnboardingScreens extends Component {
     this.setState({
       index
     });
-    this.props.loadingData(index)
+    this.props.loadMovements(this.props.cuentas[index].uid, index)
   }
 
   /**
@@ -268,7 +270,7 @@ const styles = StyleSheet.create({
   // Pagination indicators
   pagination: {
     position: 'absolute',
-    bottom: 40,
+    bottom: 20,
     left: 0,
     right: 0,
     flex: 1,

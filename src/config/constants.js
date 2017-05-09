@@ -1,5 +1,5 @@
 const constants = {
-  auth: {
+   auth: {
     client_id: '3RRrFaxNTdMOUlGT85KHkKvIOiTEsUOp',
     client_secret: 'VN51B519IYjMR9gK6hsFjRb70JxKF6Ls'
   },
