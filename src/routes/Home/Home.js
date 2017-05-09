@@ -7,11 +7,13 @@ import {
   ListView
 } from 'react-native'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Swiper from '../../components/Swiper'
-import moment from 'moment'
+
+moment.locale('es')
 
 const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) => {
   const viewMovimientos = movimientos.length
@@ -59,12 +61,23 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
 
       <View style={styles.containerMovimientos}>
         <Text style={styles.tituloMovimientos}>MOVIMIENTOS</Text>
+<<<<<<< HEAD
         {
           viewMovimientos === 0
           ? <View style={styles.containerCargandoMovimientos}>
             <ActivityIndicator style={styles.cargandoMovimientos} color='white' />
           </View>
           : <ListView dataSource={movimientos} renderRow={item => 
+=======
+        {         
+          movimientos.length === 0
+          ? <View style={styles.containerCargandoMovimientos}>
+            <ActivityIndicator style={styles.cargandoMovimientos} color='white' />
+          </View>
+          : movimientos.map(item => {
+            moment.locale('es')
+            return (
+>>>>>>> 75b83a43520e503c3493d9672989806018eab00a
               <View key={item.uid} style={styles.movimiento}>
                 <View>
                   <Text style={styles.razon}>{item.reason}</Text>
