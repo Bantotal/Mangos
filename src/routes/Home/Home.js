@@ -8,6 +8,7 @@ import {
 } from 'react-native'
 import PropTypes from 'prop-types'
 import moment from 'moment'
+import 'moment/locale/es'
 
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
