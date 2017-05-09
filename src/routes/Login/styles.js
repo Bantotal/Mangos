@@ -32,8 +32,7 @@ export default StyleSheet.create({
     marginHorizontal: 40
   },
   loginButton: {
-    //marginTop: 10,
-    marginBottom: 50
+    marginBottom: 10
   },
   textLogin: {
     fontSize: 24,
