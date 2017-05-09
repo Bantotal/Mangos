@@ -16,6 +16,7 @@ class HomeContainer extends Component {
     this._loadAccounts = this._loadAccounts.bind(this)
     this._loadMovements = this._loadMovements.bind(this)
     this._setFavorite = this._setFavorite.bind(this)
+    console.warn(`camila ${deviceLocale}`)
     this.state = {
       movimientos: null,
       cuentas: null,

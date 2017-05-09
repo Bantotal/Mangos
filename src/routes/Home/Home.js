@@ -53,12 +53,13 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
 
       <View style={styles.containerMovimientos}>
         <Text style={styles.tituloMovimientos}>MOVIMIENTOS</Text>
-        {
+        {         
           movimientos.length === 0
           ? <View style={styles.containerCargandoMovimientos}>
             <ActivityIndicator style={styles.cargandoMovimientos} color='white' />
           </View>
           : movimientos.map(item => {
+            moment.locale('es')
             return (
               <View key={item.uid} style={styles.movimiento}>
                 <View>
