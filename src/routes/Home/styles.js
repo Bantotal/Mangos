@@ -34,29 +34,30 @@ export default StyleSheet.create({
   },
   saldo: {
     color: '#E2D755',
-    fontSize: 28,
+    fontSize: 32,
     fontWeight: '500',
     fontFamily: 'Helvetica-Bold'
   },
   label: {
     color: '#CBC1B4',
-    fontSize: 12,
+    fontSize: 14,
     fontFamily: 'Helvetica-Light',
     marginLeft: 30,
     marginTop: 5
   },
   tiempo: {
     color: '#CBC1B4',
-    fontSize: 12,
+    fontSize: 14,
     fontFamily: 'Helvetica-Light',
     marginTop: 5
   },
   infoProducto: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: 'Helvetica-Light',
     marginHorizontal: 30,
-    marginTop: 5
+    marginTop: 5,
+    fontWeight: '400'
   },
   producto: {
     marginTop: 20
@@ -69,7 +70,7 @@ export default StyleSheet.create({
     marginTop: 20,
     marginBottom: 20,
     color: '#CBC1B4',
-    fontSize: 14,
+    fontSize: 16,
     fontFamily: 'Helvetica-Light',
     marginHorizontal: 30
   },
@@ -81,19 +82,19 @@ export default StyleSheet.create({
   },
   razon: {
     color: '#FFFFFF',
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: 'Helvetica-Light',
     fontWeight: '400'
   },
   credito: {
     color: '#27E570',
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: 'Helvetica-Light',
     fontWeight: '500'
   },
   debito: {
     color: '#FF2851',
-    fontSize: 16,
+    fontSize: 18,
     fontFamily: 'Helvetica-Light',
     fontWeight: '500'
   }
