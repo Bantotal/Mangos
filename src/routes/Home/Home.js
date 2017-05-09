@@ -3,7 +3,8 @@ import {
   View,
   Text,
   TouchableHighlight,
-  ActivityIndicator
+  ActivityIndicator,
+  ListView
 } from 'react-native'
 import PropTypes from 'prop-types'
 
@@ -13,6 +14,11 @@ import Swiper from '../../components/Swiper'
 import moment from 'moment'
 
 const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) => {
+  const viewMovimientos = movimientos.length
+  // inicio DataSource para movimientos
+  const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+  movimientos = ds.cloneWithRows(movimientos)
+
   return (
     cuentas.length === 0
     ? <View style={styles.containerCargando}>
@@ -54,12 +60,11 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
       <View style={styles.containerMovimientos}>
         <Text style={styles.tituloMovimientos}>MOVIMIENTOS</Text>
         {
-          movimientos.length === 0
+          viewMovimientos === 0
           ? <View style={styles.containerCargandoMovimientos}>
             <ActivityIndicator style={styles.cargandoMovimientos} color='white' />
           </View>
-          : movimientos.map(item => {
-            return (
+          : <ListView dataSource={movimientos} renderRow={item => 
               <View key={item.uid} style={styles.movimiento}>
                 <View>
                   <Text style={styles.razon}>{item.reason}</Text>
@@ -71,8 +76,7 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
                   : <Text style={styles.debito}> - {parseInt(item.ammount).toLocaleString()}</Text>
                 }
               </View>
-            )
-          })
+          } />
         }
       </View>
     </View>
