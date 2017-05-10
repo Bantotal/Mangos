@@ -45,5 +45,15 @@ export default StyleSheet.create({
     fontWeight: '500',
     fontFamily: 'Helvetica-Bold',
     color: '#020F1D'
+  },
+  footerContainer: {
+    marginBottom: 10,
+    marginTop: 10,
+    alignItems: 'center'
+  },
+  footer: {
+    fontSize: 12,
+    fontFamily: 'Helvetica-Bold',
+    color: '#CBC1B4'
   }
 })

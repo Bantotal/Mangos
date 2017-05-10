@@ -7,6 +7,7 @@ import {
   Button
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
+import Icon from 'react-native-vector-icons/FontAwesome'
 import * as Animatable from 'react-native-animatable'
 
 import styles from './styles'
@@ -32,6 +33,9 @@ const Login = ({ authenticate }) => {
           <Button style={styles.button} onPress={authenticate} title='Ingresar con Banco 2'
             color='#F8DF4F' accessibilityLabel='Ingresar con Banco 2' />
         </View>
+      </Animatable.View>
+      <Animatable.View style={styles.footerContainer} animation='fadeIn' delay={1500}>
+        <Text style={styles.footer}>Hecho con <Icon name='heart' color='#900' size={12} /> por Bantotal</Text>
       </Animatable.View>
     </LinearGradient>
   )
