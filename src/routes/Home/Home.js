@@ -6,6 +6,7 @@ import {
   ActivityIndicator,
   ListView
 } from 'react-native'
+import * as Animatable from 'react-native-animatable'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 import 'moment/locale/es'
@@ -13,7 +14,6 @@ import 'moment/locale/es'
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Swiper from '../../components/Swiper'
-import * as Animatable from 'react-native-animatable';
 
 const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) => {
   const viewMovimientos = movimientos.length
@@ -26,7 +26,7 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
     ? <View style={styles.containerCargando}>
       <ActivityIndicator color='white' />
     </View>
-    : <View style={styles.container}>
+    : <Animatable.View style={styles.container} animation='fadeIn'>
       <View style={styles.containerCuenta}>
         <Swiper index={index} cuentas={cuentas} loadMovements={loadMovements}>
           {
@@ -72,7 +72,7 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
             <ActivityIndicator style={styles.cargandoMovimientos} color='white' />
           </View>
           : <ListView dataSource={movimientos} renderRow={item =>
-            <View key={item.uid} style={styles.movimiento}>
+            <Animatable.View key={item.uid} style={styles.movimiento} animation='fadeInDown'>
               <View>
                 <Text style={styles.razon}>{item.reason}</Text>
                 <Text style={styles.tiempo}>{moment(item.valueDate).fromNow()}</Text>
@@ -82,11 +82,11 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
                 ? <Text style={styles.credito}> + {parseInt(item.ammount).toLocaleString()}</Text>
                 : <Text style={styles.debito}> - {parseInt(item.ammount).toLocaleString()}</Text>
               }
-            </View>
+            </Animatable.View>
           } />
         }
       </View>
-    </View>
+    </Animatable.View>
   )
 }
 
