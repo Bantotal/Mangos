@@ -6,7 +6,7 @@ export default StyleSheet.create({
     backgroundColor: 'transparent'
   },
   logoView: {
-    flex: 0.4,
+    flex: 0.5,
     justifyContent: 'center',
     marginHorizontal: 40
   },
@@ -16,7 +16,7 @@ export default StyleSheet.create({
     fontFamily: (Platform.OS === 'ios') ? 'Dhurjati' : 'Dhurjati-Regular'
   },
   textView: {
-    flex: 0.6
+    flex: 0.5
   },
   text: {
     color: '#FFFFFF',
@@ -31,8 +31,14 @@ export default StyleSheet.create({
     fontFamily: 'Helvetica-Light',
     marginHorizontal: 40
   },
+  buttonContainer: {
+    marginBottom: (Platform.OS === 'ios') ? 50 : 0
+  },
   loginButton: {
-    marginBottom: 10
+    marginBottom: (Platform.OS === 'ios') ? 30 : 10
+  },
+  button: {
+    fontWeight: '400'
   },
   textLogin: {
     fontSize: 24,

@@ -71,18 +71,18 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
           ? <View style={styles.containerCargandoMovimientos}>
             <ActivityIndicator style={styles.cargandoMovimientos} color='white' />
           </View>
-          : <ListView dataSource={movimientos} renderRow={item => 
-              <View key={item.uid} style={styles.movimiento}>
-                <View>
-                  <Text style={styles.razon}>{item.reason}</Text>
-                  <Text style={styles.tiempo}>{moment(item.valueDate).fromNow()}</Text>
-                </View>
-                {
-                  item.type === 'Credit'
-                  ? <Text style={styles.credito}> + {parseInt(item.ammount).toLocaleString()}</Text>
-                  : <Text style={styles.debito}> - {parseInt(item.ammount).toLocaleString()}</Text>
-                }
+          : <ListView dataSource={movimientos} renderRow={item =>
+            <View key={item.uid} style={styles.movimiento}>
+              <View>
+                <Text style={styles.razon}>{item.reason}</Text>
+                <Text style={styles.tiempo}>{moment(item.valueDate).fromNow()}</Text>
               </View>
+              {
+                item.type === 'Credit'
+                ? <Text style={styles.credito}> + {parseInt(item.ammount).toLocaleString()}</Text>
+                : <Text style={styles.debito}> - {parseInt(item.ammount).toLocaleString()}</Text>
+              }
+            </View>
           } />
         }
       </View>

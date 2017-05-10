@@ -18,12 +18,13 @@ class LoginContainer extends Component {
     this._authenticate = this._authenticate.bind(this)
   }
 
-  _authenticate () {
-    oAuth.bdevelopers(constants.auth)
-      .then(response => {
-        this.props.actions.authenticate(response)
-      })
-      .catch(err => console.log(err))
+  async _authenticate () {
+    try {
+      const result = await oAuth.bdevelopers(constants.auth)
+      this.props.actions.authenticate(result)
+    } catch (err) {
+      console.log(`_authenticate error ${JSON.stringify(err)}`)
+    }
   }
 
   componentWillReceiveProps (nextProps) {
