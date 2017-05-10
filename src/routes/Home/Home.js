@@ -13,6 +13,7 @@ import 'moment/locale/es'
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Swiper from '../../components/Swiper'
+import * as Animatable from 'react-native-animatable';
 
 const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) => {
   const viewMovimientos = movimientos.length
@@ -34,13 +35,18 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
                 <View key={item.uid}>
                   <View style={styles.cuenta}>
                     <Text style={styles.saldo}>{item.currency} {parseInt(item.balance).toLocaleString()}</Text>
-                    <TouchableHighlight onPress={() => setFavorite(item.uid)}>
-                      {
-                        heart === item.uid
-                        ? <Icon name='heart' color='#900' size={32} />
-                        : <Icon name='heart-o' color='#900' size={32} />
-                      }
-                    </TouchableHighlight>
+                    
+                      <TouchableHighlight onPress={() => setFavorite(item.uid)}>
+                        <Animatable.Text  nimation="pulse" easing="ease-out" iterationCount="infinite">
+                        {
+                          heart === item.uid
+                          ? <Icon name='heart' color='#900' size={32} />
+                          : <Icon name='heart-o' color='#900' size={32} />
+                        }
+                         </Animatable.Text>
+                      </TouchableHighlight>
+                   
+                 
                   </View>
                   <Text style={styles.label}>Saldo actual</Text>
                   <View style={styles.producto}>
