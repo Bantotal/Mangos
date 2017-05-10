@@ -13,9 +13,9 @@ import 'moment/locale/es'
 import styles from './styles'
 import Icon from 'react-native-vector-icons/FontAwesome'
 import Swiper from '../../components/Swiper'
-import * as Animatable from 'react-native-animatable';
+import * as Animatable from 'react-native-animatable'
 
-const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) => {
+const Home = ({index, cuentas, toggledOn, movimientos, heart, loadMovements, setFavorite}) => {
   const viewMovimientos = movimientos.length
   // inicio DataSource para movimientos
   const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
@@ -35,18 +35,13 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
                 <View key={item.uid}>
                   <View style={styles.cuenta}>
                     <Text style={styles.saldo}>{item.currency} {parseInt(item.balance).toLocaleString()}</Text>
-                    
-                      <TouchableHighlight onPress={() => setFavorite(item.uid)}>
-                        <Animatable.Text  nimation="pulse" easing="ease-out" iterationCount="infinite">
+                    <TouchableHighlight onPress={() => setFavorite(item.uid)}>
                         {
                           heart === item.uid
-                          ? <Icon name='heart' color='#900' size={32} />
-                          : <Icon name='heart-o' color='#900' size={32} />
+                          ?  <Animatable.View animation='rubberBand' delay={200}><Icon name='heart' color='#900' size={32}/></Animatable.View>
+                          : <Icon name='heart-o' color='#900' size={32}/>
                         }
-                         </Animatable.Text>
                       </TouchableHighlight>
-                   
-                 
                   </View>
                   <Text style={styles.label}>Saldo actual</Text>
                   <View style={styles.producto}>
