@@ -7,22 +7,24 @@ import {
   Button
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
+import Icon from 'react-native-vector-icons/FontAwesome'
+import * as Animatable from 'react-native-animatable'
 
 import styles from './styles'
 import images from '../../config/images'
 
 const Login = ({ authenticate }) => {
   return (
-    <LinearGradient colors={['#020F1D', '#13212E']} style={styles.container} >
-      <View style={styles.logoView}>
+    <LinearGradient colors={['#020F1D', '#13212E']} style={styles.container}>
+      <Animatable.View style={styles.logoView} animation='slideInLeft'>
         <Image source={images.logo} />
         <Text style={styles.title}>MANGOS</Text>
-      </View>
-      <View style={styles.textView}>
+      </Animatable.View>
+      <Animatable.View style={styles.textView} animation='zoomIn' delay={800}>
         <Text style={styles.text2}>Rápidamente</Text>
         <Text style={styles.text}>cuanto dinero tienes</Text>
-      </View>
-      <View style={styles.buttonContainer}>
+      </Animatable.View>
+      <Animatable.View style={styles.buttonContainer} animation='zoomIn' delay={1000}>
         <View style={styles.loginButton}>
           <Button style={styles.button} onPress={authenticate} title='Ingresar con Banco 1'
             color='#E7AA1A' accessibilityLabel='Ingresar con Banco 1' />
@@ -31,7 +33,10 @@ const Login = ({ authenticate }) => {
           <Button style={styles.button} onPress={authenticate} title='Ingresar con Banco 2'
             color='#F8DF4F' accessibilityLabel='Ingresar con Banco 2' />
         </View>
-      </View>
+      </Animatable.View>
+      <Animatable.View style={styles.footerContainer} animation='fadeIn' delay={1500}>
+        <Text style={styles.footer}>Hecho con <Icon name='heart' color='#900' size={12} /> por Bantotal</Text>
+      </Animatable.View>
     </LinearGradient>
   )
 }
