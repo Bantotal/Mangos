@@ -36,11 +36,11 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
                   <View style={styles.cuenta}>
                     <Text style={styles.saldo}>{item.currency} {parseInt(item.balance).toLocaleString()}</Text>
                     <TouchableHighlight onPress={() => setFavorite(item.uid)}>
-                        {
-                          heart === item.uid
-                          ? <Animatable.View animation='rubberBand' delay={200}><Icon name='heart' color='#900' size={32} /></Animatable.View>
-                          : <Icon name='heart-o' color='#900' size={32} />
-                        }
+                      {
+                        heart === item.uid
+                        ? <Animatable.View animation='rubberBand' delay={200}><Icon name='heart' color='#900' size={32} /></Animatable.View>
+                        : <Icon name='heart-o' color='#900' size={32} />
+                      }
                     </TouchableHighlight>
                   </View>
                   <Text style={styles.label}>Saldo actual</Text>

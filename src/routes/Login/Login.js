@@ -4,7 +4,6 @@ import {
   View,
   Text,
   Image,
-  Button,
   TouchableHighlight
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
@@ -26,12 +25,12 @@ const Login = ({ authenticate }) => {
         <Text style={styles.text}>cuanto dinero tienes</Text>
       </Animatable.View>
       <Animatable.View style={styles.buttonContainer} animation='zoomIn' delay={1000}>
-        <Text style={styles.textSelect}>Selecciona con que Banco desea ingresar</Text>
+        <Text style={styles.seleccion}>Selecciona con que Banco deseas ingresar</Text>
         <TouchableHighlight style={styles.loginButton} onPress={authenticate}>
           <Image source={images.bancoBBVA} />
         </TouchableHighlight>
-        <View style={styles.linea}/>
-        <TouchableHighlight onPress={authenticate}>
+        <View style={styles.linea} />
+        <TouchableHighlight style={styles.loginButton} onPress={authenticate}>
           <Image source={images.bancoHSBC} />
         </TouchableHighlight>
       </Animatable.View>

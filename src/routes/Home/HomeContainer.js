@@ -65,7 +65,7 @@ class HomeContainer extends Component {
   _setFavorite (uid) {
     try {
       AsyncStorage.setItem('@MangosStore:cuentaFavorita', uid)
-      this.setState({ heart: uid})
+      this.setState({ heart: uid })
     } catch (err) {
       console.log(`_setFavorite error ${JSON.stringify(err)}`)
     }
