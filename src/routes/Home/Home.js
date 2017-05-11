@@ -9,6 +9,7 @@ import {
 } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 import PropTypes from 'prop-types'
+import numeral from 'numeral'
 import moment from 'moment'
 import 'moment/locale/es'
 
@@ -37,7 +38,7 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
               return (
                 <View key={item.uid}>
                   <View style={styles.cuenta}>
-                    <Text style={styles.saldo}>{item.currency} {parseInt(item.balance).toLocaleString()}</Text>
+                    <Text style={styles.saldo}>{item.currency} {numeral(item.balance).format()}</Text>
                     <TouchableHighlight onPress={() => setFavorite(item.uid)}>
                       {
                         heart === item.uid
@@ -77,8 +78,8 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
               </View>
               {
                 item.type === 'Credit'
-                ? <Text style={styles.credito}> + {parseInt(item.ammount).toLocaleString()}</Text>
-                : <Text style={styles.debito}> - {parseInt(item.ammount).toLocaleString()}</Text>
+                ? <Text style={styles.credito}> + {numeral(item.ammount).format('0,0.00')}</Text>
+                : <Text style={styles.debito}> - {numeral(item.ammount).format('0,0.00')}</Text>
               }
             </Animatable.View>
           } />
