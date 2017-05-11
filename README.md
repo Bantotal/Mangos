@@ -9,6 +9,8 @@ La aplicación está desarrollada  con [React Native], y funciona tanto para iOS
 ### ¿Qué servicios utiliza?
 Los servicios utilizados son los de Autenticación, Consulta de Cuentas y Consulta de Movimientos.
 
+
+
 > Esta aplicación es a modo de ejemplo, no está conectada a un Banco real y nunca lo estará.
 
 Esperanos que te sea de ayuda, no dudes en preguntarnos.
