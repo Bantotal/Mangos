@@ -4,7 +4,8 @@ import {
   Text,
   TouchableHighlight,
   ActivityIndicator,
-  ListView
+  ListView,
+  StatusBar
 } from 'react-native'
 import * as Animatable from 'react-native-animatable'
 import PropTypes from 'prop-types'
@@ -24,9 +25,11 @@ const Home = ({index, cuentas, movimientos, heart, loadMovements, setFavorite}) 
   return (
     cuentas.length === 0
     ? <View style={styles.containerCargando}>
+      <StatusBar barStyle='light-content' />
       <ActivityIndicator color='white' />
     </View>
     : <Animatable.View style={styles.container} animation='fadeIn'>
+      <StatusBar barStyle='light-content' />
       <View style={styles.containerCuenta}>
         <Swiper index={index} cuentas={cuentas} loadMovements={loadMovements}>
           {

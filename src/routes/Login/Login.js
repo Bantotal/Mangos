@@ -4,7 +4,8 @@ import {
   View,
   Text,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  StatusBar
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -16,6 +17,7 @@ import images from '../../config/images'
 const Login = ({ authenticate }) => {
   return (
     <LinearGradient colors={['#020F1D', '#13212E']} style={styles.container}>
+      <StatusBar barStyle='light-content' />
       <Animatable.View style={styles.logoView} animation='slideInLeft'>
         <Image source={images.logo} />
         <Text style={styles.title}>MANGOS</Text>
