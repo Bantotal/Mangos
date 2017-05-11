@@ -20,8 +20,7 @@ class HomeContainer extends Component {
       movimientos: null,
       cuentas: null,
       index: 0,
-      heart: null,
-      toggledOn: false,
+      heart: null
     }
   }
 
@@ -78,7 +77,7 @@ class HomeContainer extends Component {
 
   render () {
     return (
-      <Home index={this.state.index} toggledOn={this.state.toggledOn} cuentas={this.props.accounts} heart={this.state.heart} movimientos={this.props.movements} loadMovements={this._loadMovements} setFavorite={this._setFavorite} />
+      <Home index={this.state.index} cuentas={this.props.accounts} heart={this.state.heart} movimientos={this.props.movements} loadMovements={this._loadMovements} setFavorite={this._setFavorite} />
     )
   }
 }
