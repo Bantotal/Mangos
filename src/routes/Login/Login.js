@@ -4,7 +4,8 @@ import {
   View,
   Text,
   Image,
-  Button
+  Button,
+  TouchableHighlight
 } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -25,14 +26,14 @@ const Login = ({ authenticate }) => {
         <Text style={styles.text}>cuanto dinero tienes</Text>
       </Animatable.View>
       <Animatable.View style={styles.buttonContainer} animation='zoomIn' delay={1000}>
-        <View style={styles.loginButton}>
-          <Button style={styles.button} onPress={authenticate} title='Ingresar con Banco 1'
-            color='#E7AA1A' accessibilityLabel='Ingresar con Banco 1' />
-        </View>
-        <View style={styles.loginButton}>
-          <Button style={styles.button} onPress={authenticate} title='Ingresar con Banco 2'
-            color='#F8DF4F' accessibilityLabel='Ingresar con Banco 2' />
-        </View>
+        <Text style={styles.textSelect}>Selecciona con que Banco desea ingresar</Text>
+        <TouchableHighlight style={styles.loginButton} onPress={authenticate}>
+          <Image source={images.bancoBBVA} />
+        </TouchableHighlight>
+        <View style={styles.linea}/>
+        <TouchableHighlight onPress={authenticate}>
+          <Image source={images.bancoHSBC} />
+        </TouchableHighlight>
       </Animatable.View>
       <Animatable.View style={styles.footerContainer} animation='fadeIn' delay={1500}>
         <Text style={styles.footer}>Hecho con <Icon name='heart' color='#900' size={12} /> por Bantotal</Text>
