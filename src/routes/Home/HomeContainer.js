@@ -20,8 +20,7 @@ class HomeContainer extends Component {
       movimientos: null,
       cuentas: null,
       index: 0,
-      heart: null,
-      toggledOn: false,
+      heart: null
     }
   }
 
@@ -66,7 +65,7 @@ class HomeContainer extends Component {
   _setFavorite (uid) {
     try {
       AsyncStorage.setItem('@MangosStore:cuentaFavorita', uid)
-      this.setState({ heart: uid})
+      this.setState({ heart: uid })
     } catch (err) {
       console.log(`_setFavorite error ${JSON.stringify(err)}`)
     }
@@ -78,7 +77,7 @@ class HomeContainer extends Component {
 
   render () {
     return (
-      <Home index={this.state.index} toggledOn={this.state.toggledOn} cuentas={this.props.accounts} heart={this.state.heart} movimientos={this.props.movements} loadMovements={this._loadMovements} setFavorite={this._setFavorite} />
+      <Home index={this.state.index} cuentas={this.props.accounts} heart={this.state.heart} movimientos={this.props.movements} loadMovements={this._loadMovements} setFavorite={this._setFavorite} />
     )
   }
 }

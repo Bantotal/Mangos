@@ -31,28 +31,24 @@ export default StyleSheet.create({
     fontFamily: 'Helvetica-Light',
     marginHorizontal: 40
   },
-  textSelect:{
+  seleccion: {
     color: '#F8DF4F',
     fontSize: 16,
     fontFamily: 'Helvetica-Light',
     marginHorizontal: 50,
-    textAlign: 'center',    
+    textAlign: 'center',
+    marginBottom: 20
   },
   buttonContainer: {
-     alignItems: 'center',
-    marginBottom: (Platform.OS === 'ios') ? 50 : 0
+    marginTop: 20,
+    alignItems: 'center',
+    marginBottom: (Platform.OS === 'ios') ? 30 : 0
   },
   loginButton: {
     alignItems: 'center',
-    marginTop: 10,
+    marginTop: 20,
     marginHorizontal: 50,
-    marginBottom: (Platform.OS === 'ios') ? 30 : 10
-  },
-   logoButton: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginHorizontal: 50,
-    marginBottom: (Platform.OS === 'ios') ? 30 : 10
+    marginBottom: (Platform.OS === 'ios') ? 20 : 10
   },
   footerContainer: {
     marginBottom: 10,
@@ -64,13 +60,11 @@ export default StyleSheet.create({
     fontFamily: 'Helvetica-Bold',
     color: '#CBC1B4'
   },
-  linea:{
+  linea: {
     width: 200,
     height: 1,
     alignItems: 'center',
     backgroundColor: '#FFFFFF',
-    marginHorizontal: 50,
-    marginBottom: 10,
-    marginTop: 10,
-  },
+    marginHorizontal: 50
+  }
 })
