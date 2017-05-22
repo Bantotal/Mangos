@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "base-64": "^0.1.0",
+    "bd-client-js": "^1.0.1",
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "numeral": "^2.0.6",
